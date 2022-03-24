@@ -32,7 +32,9 @@ export const getServerSideProps = async (ctx) => {
   if (myCookie.token === process.env.TOKEN) {
     admin = true;
   }
-  const res = await axios.get("http://localhost:3000/api/products");
+  const res = await axios.get(
+    "https://next-restaurant-101.herokuapp.com/api/products"
+  );
   return {
     props: {
       pizzaList: res.data,

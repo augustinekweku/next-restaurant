@@ -12,7 +12,7 @@ const Index = ({ orders, products }) => {
     console.log(id);
     try {
       const res = await axios.delete(
-        "http://localhost:3000/api/products/" + id
+        "https://next-restaurant-101.herokuapp.com/api/products/" + id
       );
       setPizzaList(pizzaList.filter((pizza) => pizza._id !== id));
     } catch (err) {
@@ -26,9 +26,12 @@ const Index = ({ orders, products }) => {
     const currentStatus = item.status;
 
     try {
-      const res = await axios.put("http://localhost:3000/api/orders/" + id, {
-        status: currentStatus + 1,
-      });
+      const res = await axios.put(
+        "https://next-restaurant-101.herokuapp.com/api/orders/" + id,
+        {
+          status: currentStatus + 1,
+        }
+      );
       console.log(res.data);
       setOrderList([
         //add the updated data(res) and the remove the previous Order data using filter
@@ -128,8 +131,12 @@ export const getServerSideProps = async (ctx) => {
       },
     };
   }
-  const productRes = await axios.get("http://localhost:3000/api/products");
-  const orderRes = await axios.get("http://localhost:3000/api/orders");
+  const productRes = await axios.get(
+    "https://next-restaurant-101.herokuapp.com/api/products"
+  );
+  const orderRes = await axios.get(
+    "https://next-restaurant-101.herokuapp.com/api/orders"
+  );
 
   return {
     props: {
