@@ -39,17 +39,18 @@ const Add = ({ setClose }) => {
 
       const { url } = uploadRes.data;
       const newProduct = {
-        title,
-        desc,
-        prices,
-        extraOptions,
+        title: title,
+        desc: desc,
+        prices: prices,
+        extraOptions: extraOptions,
         img: url,
       };
 
-      await axios.post(
+      const uploadProduct = await axios.post(
         "https://next-restaurant-101.herokuapp.com/api/products",
         newProduct
       );
+      console.log("upload product res", uploadProduct.data);
       setClose(true);
     } catch (err) {
       console.log(err);

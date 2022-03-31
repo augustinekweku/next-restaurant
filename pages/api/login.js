@@ -1,6 +1,10 @@
 import cookie from "cookie";
+import Cors from 'cors'
+
 
 const handler = (req, res) => {
+
+
   if (req.method === "POST") {
     const { username, password } = req.body;
     if (

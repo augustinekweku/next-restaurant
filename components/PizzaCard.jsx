@@ -3,7 +3,6 @@ import styles from "../styles/PizzaCard.module.css";
 import Link from "next/link";
 
 const PizzaCard = ({ pizza }) => {
-  console.log("pizza card in next", pizza);
   return (
     <div className={styles.container}>
       <Link href={`/product/${pizza._id}`} passHref>

@@ -16,8 +16,11 @@ export default async function handler(req, res) {
   }
 
   if (method === "POST") {
+    //const body = JSON.parse(req.body);
+    const body = req.body;
+    console.log(body);
     try {
-      const products = await Product.create(req.body);
+      const products = await Product.create(body);
       res.status(201).json(products);
     } catch (err) {
       res.status(500).json(err);
